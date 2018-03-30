@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 配置SpringMVC-->
     <!-- 1：开启SpringMVC注解模式-->
@@ -16,8 +21,7 @@
 
     <!-- servlet-mapping 映射路径："/" -->
     <!-- 2：静态资源默认servlet配置
-        （1）加入对静态资源的处理：js，css，png等等
-        （2）允许使用"/"做整体映射
+         需要在web.xml中增加对静态资源的处理
     -->
     <mvc:default-servlet-handler/>
 
@@ -31,7 +35,18 @@
     <!-- 4:扫描web相关的Bean -->
     <context:component-scan base-package="com.panhainan.web"/>
 
-    <!-- 5：MVC拦截器，根据需要配置 -->
-
+    <!-- 5：MVC拦截器，根据需要配置
+        应用场景：用户登录权限
+    -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 规则：
+                1. /**拦截多级，如/test/hello
+                2. /*拦截一级，如/test，不会拦截/test/**请求
+            -->
+            <mvc:mapping path="/**"/>
+            <bean class="com.panhainan.interceptor.TestInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

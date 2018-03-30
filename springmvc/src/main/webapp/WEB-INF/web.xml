@@ -6,6 +6,15 @@
          metadata-complete="true">
     <!-- 修改maven生成的servlet版本，使用3.0 -->
 
+    <!--默认的静态资源处理Servlet处理静态资源，需要在spring-mvc.xml里面配置<mvc:default-servlet-handler/>-->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+        <url-pattern>*.css</url-pattern>
+        <url-pattern>/assets/*"</url-pattern>
+        <url-pattern>/images/*</url-pattern>
+    </servlet-mapping>
+
     <!-- 配置DispatcherServlet -->
     <servlet>
         <servlet-name>dispatcher-servlet</servlet-name>
