@@ -1,0 +1,15 @@
+body{
+    width: 960px;
+    margin: 0 auto;
+}
+body .header{
+    height: 100px;
+    padding: 10px 0 0 0;
+}
+body .header .logo{
+    height: 80px;float: left;
+    margin: 0 20px 0 10px;
+}
+body .header .logo img{
+    height: 100%;
+}
