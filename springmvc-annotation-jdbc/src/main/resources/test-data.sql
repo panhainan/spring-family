@@ -1,0 +1,1 @@
+INSERT INTO user (id, name, birth, sex, phone, email, profile) VALUES (1, '十六子', '1994-07-24', 1, '18074604900', 'sixteen@site.com', '大家好，我是十六子，不破不立！');
