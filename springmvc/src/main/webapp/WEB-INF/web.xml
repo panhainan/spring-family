@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
@@ -6,26 +7,27 @@
          metadata-complete="true">
     <!-- 修改maven生成的servlet版本，使用3.0 -->
 
-    <!--默认的静态资源处理Servlet处理静态资源，需要在spring-mvc.xml里面配置<mvc:default-servlet-handler/>-->
+    <!--配置静态资源默认处理方式，需要在spring-mvc.xml里面配置<mvc:default-servlet-handler/>-->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.js</url-pattern>
         <url-pattern>*.css</url-pattern>
-        <url-pattern>/assets/*"</url-pattern>
         <url-pattern>/images/*</url-pattern>
     </servlet-mapping>
+    <!-- 加载相关配置文件 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring-*.xml</param-value>
+    </context-param>
 
-    <!-- 配置DispatcherServlet -->
+    <!-- 配置前端控制器DispatcherServlet -->
     <servlet>
         <servlet-name>dispatcher-servlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <!-- 配置SpringMVC需要加载的配置文件
-            spring-dao，spring-service，spring-web
-            Mybatis -> Spring -> SpringMVC
-        -->
+        <!-- 配置SpringMVC需要加载的配置文件-->
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring-*.xml</param-value>
+            <param-value>classpath:spring-mvc.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>
@@ -35,8 +37,11 @@
         <!-- 配置过滤所有请求，符合SpringMVC对Restful的支持 -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
-    <!-- encoding -->
+    <!--配置上下文监听器ContextLoaderListener-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!-- 配置数据传输编码过滤器 -->
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -53,8 +58,5 @@
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
+    <display-name>SpringMVC4.x web项目 XML配置方式</display-name>
 </web-app>
