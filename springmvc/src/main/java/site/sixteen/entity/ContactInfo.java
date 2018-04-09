@@ -1,4 +1,4 @@
-package com.panhainan.entity;
+package site.sixteen.entity;
 
 public class ContactInfo {
 

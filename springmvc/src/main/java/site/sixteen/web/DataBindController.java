@@ -1,19 +1,21 @@
-package com.panhainan.web;
+package site.sixteen.web;
 
-import com.panhainan.entity.Article;
-import com.panhainan.entity.Book;
-import com.panhainan.entity.Person;
-import com.panhainan.entity.User;
-import com.panhainan.vo.UserListVO;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import site.sixteen.entity.Article;
+import site.sixteen.entity.Book;
+import site.sixteen.entity.Person;
+import site.sixteen.entity.User;
+import site.sixteen.vo.UserListVO;
 
+import java.util.Date;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * SpringMVC数据绑定实例(采用url或者表单application/x-www-form-urlencoded形式传递)
@@ -21,10 +23,10 @@ import java.util.logging.Logger;
  * @author panhainan
  * @email panhainan@yeah.net
  */
+@Slf4j
 @Controller
 public class DataBindController {
 
-    Logger logger = Logger.getLogger(this.toString());
 
     /**
      * 参数为基本数据类型，如int
@@ -41,7 +43,7 @@ public class DataBindController {
     @ResponseBody
     public String basicType(int param) {
         String msg = "the param is " + param;
-        logger.info(msg);
+        log.info(msg);
         return msg;
     }
 
@@ -59,7 +61,7 @@ public class DataBindController {
     @ResponseBody
     public String wrapperType(Integer param) {
         String msg = "the param is " + param;
-        logger.info(msg);
+        log.info(msg);
         return msg;
     }
 
@@ -79,7 +81,7 @@ public class DataBindController {
         for (String p : params) {
             msg.append(p + " ");
         }
-        logger.info(msg.toString());
+        log.info(msg.toString());
         return msg.toString();
     }
 
@@ -99,7 +101,7 @@ public class DataBindController {
     @ResponseBody
     public String objectType(User user) {
         String msg = "user is : " + user;
-        logger.info(msg);
+        log.info(msg);
         return msg;
     }
 
@@ -120,7 +122,7 @@ public class DataBindController {
     @ResponseBody
     public String objectsAttributeType(User user, Book book) {
         String msg = "user is : " + user + ",book is : " + book;
-        logger.info(msg);
+        log.info(msg);
         return msg;
     }
 
@@ -152,7 +154,7 @@ public class DataBindController {
         for (User user : userListVO.getUserList()) {
             msg.append(user + " ");
         }
-        logger.info(msg.toString());
+        log.info(msg.toString());
         return msg.toString();
     }
 
@@ -191,7 +193,7 @@ public class DataBindController {
     @ResponseBody
     public String jsonObjectType(@RequestBody User user) {
         String msg = user.toString();
-        logger.info(msg);
+        log.info(msg);
         return msg;
     }
 
@@ -207,7 +209,7 @@ public class DataBindController {
     @ResponseBody
     public String jsonObjectsType(@RequestBody Person person) {
         String msg = person.toString();
-        logger.info(msg);
+        log.info(msg);
         return msg;
     }
 
@@ -226,7 +228,7 @@ public class DataBindController {
         for (User user : users) {
             msg.append(user.toString() + " ");
         }
-        logger.info(msg.toString());
+        log.info(msg.toString());
         return msg.toString();
     }
 
@@ -246,7 +248,7 @@ public class DataBindController {
         for (User user : userList) {
             msg.append(user.toString() + " ");
         }
-        logger.info(msg.toString());
+        log.info(msg.toString());
         return msg.toString();
     }
 
@@ -279,8 +281,23 @@ public class DataBindController {
     @ResponseBody
     public String xmlType(@RequestBody Article article) {
         String msg = article.toString();
-        logger.info(msg);
+        log.info(msg);
         return msg;
+    }
+
+    /**
+     * Date格式
+     * get方式：http://localhost:8080/springmvc/dateType?date=2014-10-10
+     * post方式：http://localhost:8080/springmvc/dateType 附带参数：date=2014-10-10
+     *
+     * @param date
+     * @return
+     */
+    @RequestMapping("/dateType")
+    @ResponseBody
+    public String dateType(@DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
+        log.info("{}", date.toString());
+        return date.toString();
     }
 
 

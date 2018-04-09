@@ -1,4 +1,4 @@
-package com.panhainan.interceptor;
+package site.sixteen.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;

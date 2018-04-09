@@ -1,6 +1,6 @@
-package com.panhainan.vo;
+package site.sixteen.vo;
 
-import com.panhainan.entity.User;
+import site.sixteen.entity.User;
 
 import java.util.List;
 
