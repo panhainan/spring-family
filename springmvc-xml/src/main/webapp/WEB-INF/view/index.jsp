@@ -19,7 +19,7 @@
         <li>Spring 4.3.6.RELEASE</li>
         <li>JDK 1.8</li>
         <li>logback 1.1.2</li>
-        <li>Junit 4.11</li>
+        <li>Junit 4.12</li>
     </ul>
     <h3>项目结构</h3>
     <p>查看源码，前往GitHub，查看 <a href="https://github.com/panhainan/spring-family">github.com/panhainan/spring-family</a>下的 <b>springmvc-xml</b>文件夹</p>
