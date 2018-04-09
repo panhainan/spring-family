@@ -1,6 +1,6 @@
 ## SpringMVC学习笔记
 
-### 一、SpringMVC数据绑定  
+### 一、SpringMVC数据绑定与数据校验  
 
 #### （一）[基于form表单和url传递参数方式的数据绑定](http://sixteen.site/2018/03/19/SpringMVC%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A-form%E8%A1%A8%E5%8D%95%E5%92%8Curl%E5%BD%A2%E5%BC%8F%E4%BC%A0%E5%8F%82/)   
 
@@ -16,10 +16,11 @@
 　　　　1.2 简单对象包含对象，即多层级对象  
 　　　　1.3 对象数组  
 　　　　1.4 集合List类型  
-　　2. XML格式  
+　　2. XML格式
+
+#### （三）[日期格式Date类型的数据绑定](http://sixteen.site/2018/04/02/SpringMVC%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A-Date%E7%B1%BB%E5%9E%8B)  
+#### （四）[SpringMVC数据校验](http://sixteen.site/2018/04/09/SpringMVC%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/)
 
 ### 二、[SpringMVC拦截器](http://sixteen.site/2018/03/30/SpringMVC%E6%8B%A6%E6%88%AA%E5%99%A8%E5%8F%8A%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/)
-
-#### 拦截器的简介和使用配置
-
-#### 针对静态文件放行的三种方法
+1. 拦截器的简介和使用配置
+1. 针对静态文件放行的三种方法
