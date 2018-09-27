@@ -1,0 +1,25 @@
+server:
+  port: 7777
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&allowMultiQueries=true&useSSL=false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect  #不加这句则默认为MyISAM引擎
+#    show-sql: true
+logging:
+  level:
+    root: INFO
+    site.sixteen: DEBUG
+    org.springframework: INFO
+    org.springframework.web: INFO
+    org.hibernate: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: trace
+  pattern:
+    console: "%d{HH:mm:ss.SSS}|%10thread|%-5level|%logger{36}[%method] - %msg%n"
