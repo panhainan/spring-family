@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.data.repository.Repository</OriginalElement>
+  <nodes>
+    <node x="0.0" y="400.0">org.springframework.data.repository.query.QueryByExampleExecutor</node>
+    <node x="344.0" y="444.0">org.springframework.data.repository.PagingAndSortingRepository</node>
+    <node x="405.0" y="0.0">org.springframework.data.repository.Repository</node>
+    <node x="312.5" y="79.0">org.springframework.data.repository.CrudRepository</node>
+    <node x="164.99999999999997" y="611.0">org.springframework.data.jpa.repository.JpaRepository</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.data.repository.PagingAndSortingRepository" target="org.springframework.data.repository.CrudRepository">
+      <point x="0.0" y="-36.5" />
+      <point x="0.0" y="135.5" />
+    </edge>
+    <edge source="org.springframework.data.jpa.repository.JpaRepository" target="org.springframework.data.repository.query.QueryByExampleExecutor">
+      <point x="-74.0" y="-135.5" />
+      <point x="238.99999999999997" y="586.0" />
+      <point x="162.0" y="586.0" />
+      <point x="0.0" y="80.5" />
+    </edge>
+    <edge source="org.springframework.data.jpa.repository.JpaRepository" target="org.springframework.data.repository.PagingAndSortingRepository">
+      <point x="74.0" y="-135.5" />
+      <point x="387.0" y="586.0" />
+      <point x="464.0" y="586.0" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="org.springframework.data.repository.CrudRepository" target="org.springframework.data.repository.Repository">
+      <point x="0.0" y="-135.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9667405764966741" x="308.0" y="441.0" />
+  <SelectedNodes>
+    <node>org.springframework.data.repository.PagingAndSortingRepository</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -6,8 +6,7 @@
  */
 package site.sixteen.springdatajpa.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
